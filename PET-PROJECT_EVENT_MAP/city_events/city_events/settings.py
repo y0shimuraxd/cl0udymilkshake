@@ -82,9 +82,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'city_events.urls'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+CORS_ALLOWED_ORIGINS = TRUE #[
+    # "http://localhost:5173",  # или 5177, если у тебя такой порт
+    # "http://127.0.0.1:5173",
+    # "http://127.0.0.1:5177",
+#]
 
 TEMPLATES = [
     {

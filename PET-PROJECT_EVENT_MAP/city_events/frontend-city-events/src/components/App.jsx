@@ -1,16 +1,31 @@
-import React from 'react';
-import EventMap from './EventMap';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';  // без Router
+
 import Header from './Header';
-import '../styles/liquidGlass.css';
+import EventMap from './EventMap';
+import Register from './Register';
+import Profile from './Profile';
+import EventPage from './EventPage';
+import Login from './Login';
+import AddEvent from './AddEvent';
 
 const App = () => {
+  const [token, setToken] = useState(localStorage.getItem('token') || '');
+
   return (
-    <div className="app">
-      <Header />
+    <>
+      <Header token={token} setToken={setToken} />
       <main className="main-content">
-        <EventMap />
+        <Routes>
+          <Route path="/" element={<EventMap />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login setToken={setToken} />} />
+          <Route path="/add" element={token ? <AddEvent /> : <Login setToken={setToken} />} />
+          <Route path="/eventpage" element={<EventPage />} />
+        </Routes>
       </main>
-    </div>
+    </>
   );
 };
 

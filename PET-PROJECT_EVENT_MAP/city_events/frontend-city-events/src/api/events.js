@@ -1,3 +1,4 @@
+// src/api/events.js
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_BASE_URL;
@@ -21,5 +22,11 @@ export async function addEvent(eventData, token) {
       Authorization: `Token ${token}`,
     },
   });
+  return res.data;
+}
+
+// Добавляем новую функцию для получения события по ID
+export async function getEventById(id) {
+  const res = await axios.get(`${API_URL}/events/${id}/`);
   return res.data;
 }
