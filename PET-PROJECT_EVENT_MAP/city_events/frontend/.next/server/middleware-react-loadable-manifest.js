@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"components/DynamicMap.js -> ./MapComponent\":{\"id\":\"components/DynamicMap.js -> ./MapComponent\",\"files\":[\"static/chunks/src_components_MapComponent_js.js\"]},\"pages/index.js -> ../components/MapView\":{\"id\":\"pages/index.js -> ../components/MapView\",\"files\":[\"static/chunks/src_components_MapView_js.js\"]}}"

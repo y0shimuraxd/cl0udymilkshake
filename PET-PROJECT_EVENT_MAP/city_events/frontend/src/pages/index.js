@@ -1,0 +1,58 @@
+import React, { useState, useEffect } from 'react';
+import { Container, Box, Typography } from '@mui/material';
+import dynamic from 'next/dynamic';
+import EventList from '../components/EventList';
+import api from '../services/api';
+
+// Динамический импорт карты, чтобы избежать проблем с SSR
+const MapView = dynamic(() => import('../components/MapView'), {
+  ssr: false,
+  loading: () => (
+    <Box sx={{ height: 500, bgcolor: '#e0e0e0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      Загрузка карты...
+    </Box>
+  ),
+});
+
+const HomePage = () => {
+  const [events, setEvents] = useState([]);
+  const [filters, setFilters] = useState({});
+
+  const loadEvents = async (params = {}) => {
+    try {
+      const response = await api.getEvents(params);
+      setEvents(response.data);
+    } catch (error) {
+      console.error('Ошибка загрузки событий:', error);
+    }
+  };
+
+  useEffect(() => {
+    loadEvents();
+  }, []);
+
+  const handleViewportChange = (bounds) => {
+    // Можно подгружать события по области карты, если хочешь
+    // console.log('Новая область карты', bounds);
+  };
+
+  return (
+    <Container maxWidth="lg" sx={{ my: 4 }}>
+      <Typography variant="h4" component="h1" gutterBottom>
+        Карта событий Ярославля
+      </Typography>
+
+      <Box sx={{ mb: 4 }}>
+        <MapView events={events} onViewportChange={handleViewportChange} />
+      </Box>
+
+      <Typography variant="h5" component="h2" gutterBottom>
+        Предстоящие события
+      </Typography>
+
+      <EventList events={events} />
+    </Container>
+  );
+};
+
+export default HomePage;
