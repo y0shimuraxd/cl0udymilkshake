@@ -1,0 +1,44 @@
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 16px 64px 0 rgba(31, 38, 135, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.shadow-glass {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.shadow-glass-lg {
+  box-shadow: 0 16px 64px 0 rgba(31, 38, 135, 0.45);
+}
+
+.animated-btn {
+  @apply px-4 py-2 rounded-lg font-semibold bg-accent text-dark shadow-glass transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-glass-lg;
+}
+
+.animated-btn-primary {
+  @apply px-4 py-2 rounded-lg font-semibold bg-gradient-to-r from-primary to-accent text-white shadow-glass transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-glass-lg;
+}
+
+.form-input {
+  @apply px-3 py-2 rounded-lg border border-accent bg-white/40 focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-200;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #415E72 0%, #C5B0CD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

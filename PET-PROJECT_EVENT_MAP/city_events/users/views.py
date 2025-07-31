@@ -26,8 +26,10 @@ class LogoutView(generics.GenericAPIView):
     permission_classes = [permissions.IsAuthenticated]
     
     def post(self, request):
+        # Удаляем токен пользователя
+        request.user.auth_token.delete()
         logout(request)
-        return Response(status=status.HTTP_200_OK)
+        return Response({'message': 'Successfully logged out'}, status=status.HTTP_200_OK)
 
 class UserView(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]

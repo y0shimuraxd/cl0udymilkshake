@@ -1,0 +1,39 @@
+{
+  "name": "city-events-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "City Events Map - Next.js + React + TailwindCSS + Framer Motion + Yandex Maps",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@pbe/react-yandex-maps": "^1.2.5",
+    "autoprefixer": "^10.4.16",
+    "axios": "^1.6.8",
+    "framer-motion": "^12.23.11",
+    "next": "^15.4.4",
+    "postcss": "^8.4.32",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.62",
+    "@types/react-dom": "^18.2.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not < 0.2%"
+  ]
+}
